@@ -61,14 +61,14 @@ $vdpColor: #7485c2 !default;
 
 .vdpClearInput {
 
-    position: absolute; top: 0; bottom: 0; right: 0;
+    font-size: 1em; position: absolute; top: 0; bottom: 0; right: 0;
     width: 3em;
 
 }
 
 .vdpClearInput:before {
 
-    content: '×'; width: 1.4em; height: 1.4em; line-height: 100%; box-sizing: border-box;
+    content: '×'; width: 1.4em; height: 1.4em; line-height: 1.1em; box-sizing: border-box;
     position: absolute; left: 50%; top: 50%; margin: -0.7em 0 0 -0.7em;
     color: rgba(0,0,0,0.3); border: 1px solid rgba(0,0,0,0.15); border-radius: 50%;
     background-color: #fff;
@@ -149,7 +149,7 @@ $vdpColor: #7485c2 !default;
 
 .vdpArrow {
 
-    width: 5em; text-indent: -999em; overflow: hidden;
+    font-size: 1em; width: 5em; text-indent: -999em; overflow: hidden;
     position: absolute; top: 0; bottom: 2.5em; text-align: left;
 
 }

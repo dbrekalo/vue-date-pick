@@ -1,0 +1,4 @@
+---
+layout: Teaser
+pageClass: homeCustom
+---

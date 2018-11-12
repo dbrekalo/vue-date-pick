@@ -1,0 +1,125 @@
+$accentColor = #7485c2
+
+@media screen and (max-width: 719px) {
+
+    .search-box input {
+
+        font-size: 1rem;
+
+    }
+
+}
+
+@media screen and (min-width: 720px) {
+
+    .search-box {
+
+        margin-right: 1.5rem;
+
+    }
+
+    .theme-container .navbar {
+
+        background: #f5f5f5; transition: padding 0.2s;
+
+    }
+
+    .theme-container .content {
+
+        padding-top: 3em !important;
+
+    }
+
+    .homeCustom .navbar {
+
+        padding: 26px 24px 0 40px;
+
+    }
+
+    .homeCustom .custom-layout {
+
+        padding-top: 0;
+        /*background: #f5f5f5;*/
+
+    }
+
+    .navbar > .links {
+
+        transition: top 0.2s; background: transparent;
+
+    }
+
+    .homeCustom > .navbar > .links {
+
+        top: 25px;
+        background-color: transparent;
+
+    }
+
+    .homeCustom > .navbar {
+
+        position: absolute;
+        border-bottom-color: transparent;
+
+    }
+
+    .navbar > a {
+
+        position: relative;
+        transition: left 0.2s, top 0.2s;
+
+    }
+
+    .navbar .site-name {
+
+        display: block; position: relative;
+        padding-left: 45px; margin-left: -15px;
+        /*font-weight: normal;*/
+
+    }
+
+    .navbar .site-name:before {
+
+        position: absolute; content: ''; left: 0; top: -2px; width: 40px; height: 40px;
+        background: transparent url('/vue-date-pick/calendar.svg') no-repeat center;
+        background-size: 28px;
+
+    }
+
+}
+
+.vdpComponent table {
+    margin: 0; display: table; overflow: static;
+}
+
+.vdpComponent tr {
+    border: 0; background: transparent !important;
+}
+
+.vdpComponent .vdpCell,
+.vdpComponent .vdpHeadCell {
+    border: 0;
+}
+
+.datePickExample {
+    /*display: block !important;*/
+    margin: 0 0 20px;
+}
+
+.datePickExample > input {
+
+    font-size: 16px; display: block; width: 100%; box-sizing: border-box;
+    padding: 15px; padding-right: 40px;
+    border-radius: 4px; background: transparent; border: 1px solid #e0e0e0;
+    box-shadow: 0 0.1em 0.3em rgba(#000, 0.05); outline: 0;
+
+}
+
+.datePickExample .vdpClearInput {
+
+    width: 4em;
+
+}
+
+details { margin-bottom: 30px; }
+summary { outline: 0; cursor: pointer; }

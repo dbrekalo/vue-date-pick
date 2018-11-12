@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Examples | Vue date pick</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/vue-date-pick/assets/css/styles.44809ad1.css" as="style"><link rel="preload" href="/vue-date-pick/assets/js/app.44809ad1.js" as="script"><link rel="preload" href="/vue-date-pick/assets/js/11.d36093e2.js" as="script"><link rel="preload" href="/vue-date-pick/assets/css/2.styles.23e8b2b7.css" as="style"><link rel="preload" href="/vue-date-pick/assets/js/2.23e8b2b7.js" as="script"><link rel="preload" href="/vue-date-pick/assets/css/0.styles.f8216d55.css" as="style"><link rel="preload" href="/vue-date-pick/assets/js/0.f8216d55.js" as="script"><link rel="preload" href="/vue-date-pick/assets/js/8.c654ab03.js" as="script"><link rel="preload" href="/vue-date-pick/assets/js/5.dd8d30c6.js" as="script"><link rel="preload" href="/vue-date-pick/assets/js/7.b7762a1b.js" as="script"><link rel="prefetch" href="/vue-date-pick/assets/css/3.styles.ac717ab2.css"><link rel="prefetch" href="/vue-date-pick/assets/css/4.styles.8a9685b1.css"><link rel="prefetch" href="/vue-date-pick/assets/css/6.styles.2eb5ca75.css"><link rel="prefetch" href="/vue-date-pick/assets/js/10.db467ad0.js"><link rel="prefetch" href="/vue-date-pick/assets/js/12.21bca413.js"><link rel="prefetch" href="/vue-date-pick/assets/js/13.c8d78b35.js"><link rel="prefetch" href="/vue-date-pick/assets/js/14.307e191a.js"><link rel="prefetch" href="/vue-date-pick/assets/js/3.ac717ab2.js"><link rel="prefetch" href="/vue-date-pick/assets/js/4.8a9685b1.js"><link rel="prefetch" href="/vue-date-pick/assets/js/6.2eb5ca75.js"><link rel="prefetch" href="/vue-date-pick/assets/js/9.73fa545e.js">
+    <link rel="stylesheet" href="/vue-date-pick/assets/css/0.styles.f8216d55.css"><link rel="stylesheet" href="/vue-date-pick/assets/css/2.styles.23e8b2b7.css"><link rel="stylesheet" href="/vue-date-pick/assets/css/3.styles.ac717ab2.css"><link rel="stylesheet" href="/vue-date-pick/assets/css/4.styles.8a9685b1.css"><link rel="stylesheet" href="/vue-date-pick/assets/css/6.styles.2eb5ca75.css"><link rel="stylesheet" href="/vue-date-pick/assets/css/styles.44809ad1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-date-pick/" class="home-link router-link-active"><!----> <span class="site-name">Vue date pick</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-date-pick/getting-started.html" class="nav-link">Documentation</a></div><div class="nav-item"><a href="/vue-date-pick/examples.html" class="nav-link router-link-exact-active router-link-active">Examples</a></div><div class="nav-item"><a href="https://github.com/dbrekalo/vue-date-pick" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-date-pick/getting-started.html" class="nav-link">Documentation</a></div><div class="nav-item"><a href="/vue-date-pick/examples.html" class="nav-link router-link-exact-active router-link-active">Examples</a></div><div class="nav-item"><a href="https://github.com/dbrekalo/vue-date-pick" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/vue-date-pick/" class="sidebar-link">Home</a></li><li><a href="/vue-date-pick/getting-started.html" class="sidebar-link">Getting started</a></li><li><a href="/vue-date-pick/examples.html" class="active sidebar-link">Examples</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-date-pick/examples.html#calendar-widget" class="sidebar-link">Calendar widget</a></li><li class="sidebar-sub-header"><a href="/vue-date-pick/examples.html#date-format" class="sidebar-link">Date format</a></li><li class="sidebar-sub-header"><a href="/vue-date-pick/examples.html#display-format" class="sidebar-link">Display format</a></li><li class="sidebar-sub-header"><a href="/vue-date-pick/examples.html#custom-date-parser" class="sidebar-link">Custom date parser</a></li><li class="sidebar-sub-header"><a href="/vue-date-pick/examples.html#date-time-picker" class="sidebar-link">Date time picker</a></li><li class="sidebar-sub-header"><a href="/vue-date-pick/examples.html#disabling-dates" class="sidebar-link">Disabling dates</a></li><li class="sidebar-sub-header"><a href="/vue-date-pick/examples.html#disabling-manual-input" class="sidebar-link">Disabling manual input</a></li></ul></li><li><a href="/vue-date-pick/localization.html" class="sidebar-link">Localization</a></li><li><a href="/vue-date-pick/customizing-appearance.html" class="sidebar-link">Customizing appearance</a></li><li><a href="/vue-date-pick/props-reference.html" class="sidebar-link">Props reference</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="examples"><a href="#examples" aria-hidden="true" class="header-anchor">#</a> Examples</h1> <h2 id="calendar-widget"><a href="#calendar-widget" aria-hidden="true" class="header-anchor">#</a> Calendar widget</h2> <p>Vue date pick can be used in calendar widget form.</p> <div class="calendarWidget" data-v-4d116567><div class="vdpComponent datePickExample" data-v-4d116567><!----> <!----> <div class="vdpOuterWrap"><div class="vdpInnerWrap"><header class="vdpHeader"><button title="Previous month" type="button" class="vdpArrow vdpArrowPrev">Previous month</button> <button type="button" title="Next month" class="vdpArrow vdpArrowNext">Next month</button> <div class="vdpPeriodControls"><div class="vdpPeriodControl"><button type="button">
+                                February
+                            </button> <select><option value="0">
+                                    January
+                                </option><option selected="selected" value="1">
+                                    February
+                                </option><option value="2">
+                                    March
+                                </option><option value="3">
+                                    April
+                                </option><option value="4">
+                                    May
+                                </option><option value="5">
+                                    June
+                                </option><option value="6">
+                                    July
+                                </option><option value="7">
+                                    August
+                                </option><option value="8">
+                                    September
+                                </option><option value="9">
+                                    October
+                                </option><option value="10">
+                                    November
+                                </option><option value="11">
+                                    December
+                                </option></select></div> <div class="vdpPeriodControl"><button type="button">
+                                2019
+                            </button> <select><option value="1979">
+                                    1979
+                                </option><option value="1980">
+                                    1980
+                                </option><option value="1981">
+                                    1981
+                                </option><option value="1982">
+                                    1982
+                                </option><option value="1983">
+                                    1983
+                                </option><option value="1984">
+                                    1984
+                                </option><option value="1985">
+                                    1985
+                                </option><option value="1986">
+                                    1986
+                                </option><option value="1987">
+                                    1987
+                                </option><option value="1988">
+                                    1988
+                                </option><option value="1989">
+                                    1989
+                                </option><option value="1990">
+                                    1990
+                                </option><option value="1991">
+                                    1991
+                                </option><option value="1992">
+                                    1992
+                                </option><option value="1993">
+                                    1993
+                                </option><option value="1994">
+                                    1994
+                                </option><option value="1995">
+                                    1995
+                                </option><option value="1996">
+                                    1996
+                                </option><option value="1997">
+                                    1997
+                                </option><option value="1998">
+                                    1998
+                                </option><option value="1999">
+                                    1999
+                                </option><option value="2000">
+                                    2000
+                                </option><option value="2001">
+                                    2001
+                                </option><option value="2002">
+                                    2002
+                                </option><option value="2003">
+                                    2003
+                                </option><option value="2004">
+                                    2004
+                                </option><option value="2005">
+                                    2005
+                                </option><option value="2006">
+                                    2006
+                                </option><option value="2007">
+                                    2007
+                                </option><option value="2008">
+                                    2008
+                                </option><option value="2009">
+                                    2009
+                                </option><option value="2010">
+                                    2010
+                                </option><option value="2011">
+                                    2011
+                                </option><option value="2012">
+                                    2012
+                                </option><option value="2013">
+                                    2013
+                                </option><option value="2014">
+                                    2014
+                                </option><option value="2015">
+                                    2015
+                                </option><option value="2016">
+                                    2016
+                                </option><option value="2017">
+                                    2017
+                                </option><option value="2018">
+                                    2018
+                                </option><option selected="selected" value="2019">
+                                    2019
+                                </option><option value="2020">
+                                    2020
+                                </option><option value="2021">
+                                    2021
+                                </option><option value="2022">
+                                    2022
+                                </option><option value="2023">
+                                    2023
+                                </option><option value="2024">
+                                    2024
+                                </option><option value="2025">
+                                    2025
+                                </option><option value="2026">
+                                    2026
+                                </option><option value="2027">
+                                    2027
+                                </option><option value="2028">
+                                    2028
+                                </option><option value="2029">
+                                    2029
+                                </option><option value="2030">
+                                    2030
+                                </option><option value="2031">
+                                    2031
+                                </option><option value="2032">
+                                    2032
+                                </option><option value="2033">
+                                    2033
+                                </option><option value="2034">
+                                    2034
+                                </option><option value="2035">
+                                    2035
+                                </option><option value="2036">
+                                    2036
+                                </option><option value="2037">
+                                    2037
+                                </option><option value="2038">
+                                    2038
+                                </option><option value="2039">
+                                    2039
+                                </option><option value="2040">
+                                    2040
+                                </option><option value="2041">
+                                    2041
+                                </option><option value="2042">
+                                    2042
+                                </option><option value="2043">
+                                    2043
+                                </option><option value="2044">
+                                    2044
+                                </option><option value="2045">
+                                    2045
+                                </option><option value="2046">
+                                    2046
+                                </option><option value="2047">
+                                    2047
+                                </option><option value="2048">
+                                    2048
+                                </option><option value="2049">
+                                    2049
+                                </option><option value="2050">
+                                    2050
+                                </option><option value="2051">
+                                    2051
+                                </option><option value="2052">
+                                    2052
+                                </option><option value="2053">
+                                    2053
+                                </option><option value="2054">
+                                    2054
+                                </option><option value="2055">
+                                    2055
+                                </option><option value="2056">
+                                    2056
+                                </option><option value="2057">
+                                    2057
+                                </option><option value="2058">
+                                    2058
+                                </option><option value="2059">
+                                    2059
+                                </option></select></div></div></header> <table class="vdpTable"><thead><tr><th class="vdpHeadCell"><span class="vdpHeadCellContent">Mon</span></th><th class="vdpHeadCell"><span class="vdpHeadCellContent">Tue</span></th><th class="vdpHeadCell"><span class="vdpHeadCellContent">Wed</span></th><th class="vdpHeadCell"><span class="vdpHeadCellContent">Thu</span></th><th class="vdpHeadCell"><span class="vdpHeadCellContent">Fri</span></th><th class="vdpHeadCell"><span class="vdpHeadCellContent">Sat</span></th><th class="vdpHeadCell"><span class="vdpHeadCellContent">Sun</span></th></tr></thead> <tbody><tr class="vdpRow"><td data-id="2019-1-28" class="vdpCell selectable outOfRange"><div class="vdpCellContent">28</div></td><td data-id="2019-1-29" class="vdpCell selectable outOfRange"><div class="vdpCellContent">29</div></td><td data-id="2019-1-30" class="vdpCell selectable outOfRange"><div class="vdpCellContent">30</div></td><td data-id="2019-1-31" class="vdpCell selectable outOfRange"><div class="vdpCellContent">31</div></td><td data-id="2019-2-1" class="vdpCell selectable"><div class="vdpCellContent">1</div></td><td data-id="2019-2-2" class="vdpCell selectable"><div class="vdpCellContent">2</div></td><td data-id="2019-2-3" class="vdpCell selectable"><div class="vdpCellContent">3</div></td></tr><tr class="vdpRow"><td data-id="2019-2-4" class="vdpCell selectable"><div class="vdpCellContent">4</div></td><td data-id="2019-2-5" class="vdpCell selectable"><div class="vdpCellContent">5</div></td><td data-id="2019-2-6" class="vdpCell selectable"><div class="vdpCellContent">6</div></td><td data-id="2019-2-7" class="vdpCell selectable"><div class="vdpCellContent">7</div></td><td data-id="2019-2-8" class="vdpCell selectable"><div class="vdpCellContent">8</div></td><td data-id="2019-2-9" class="vdpCell selectable"><div class="vdpCellContent">9</div></td><td data-id="2019-2-10" class="vdpCell selectable"><div class="vdpCellContent">10</div></td></tr><tr class="vdpRow"><td data-id="2019-2-11" class="vdpCell selectable"><div class="vdpCellContent">11</div></td><td data-id="2019-2-12" class="vdpCell selectable selected"><div class="vdpCellContent">12</div></td><td data-id="2019-2-13" class="vdpCell selectable"><div class="vdpCellContent">13</div></td><td data-id="2019-2-14" class="vdpCell selectable"><div class="vdpCellContent">14</div></td><td data-id="2019-2-15" class="vdpCell selectable"><div class="vdpCellContent">15</div></td><td data-id="2019-2-16" class="vdpCell selectable"><div class="vdpCellContent">16</div></td><td data-id="2019-2-17" class="vdpCell selectable"><div class="vdpCellContent">17</div></td></tr><tr class="vdpRow"><td data-id="2019-2-18" class="vdpCell selectable"><div class="vdpCellContent">18</div></td><td data-id="2019-2-19" class="vdpCell selectable"><div class="vdpCellContent">19</div></td><td data-id="2019-2-20" class="vdpCell selectable"><div class="vdpCellContent">20</div></td><td data-id="2019-2-21" class="vdpCell selectable"><div class="vdpCellContent">21</div></td><td data-id="2019-2-22" class="vdpCell selectable"><div class="vdpCellContent">22</div></td><td data-id="2019-2-23" class="vdpCell selectable"><div class="vdpCellContent">23</div></td><td data-id="2019-2-24" class="vdpCell selectable"><div class="vdpCellContent">24</div></td></tr><tr class="vdpRow"><td data-id="2019-2-25" class="vdpCell selectable"><div class="vdpCellContent">25</div></td><td data-id="2019-2-26" class="vdpCell selectable"><div class="vdpCellContent">26</div></td><td data-id="2019-2-27" class="vdpCell selectable"><div class="vdpCellContent">27</div></td><td data-id="2019-2-28" class="vdpCell selectable"><div class="vdpCellContent">28</div></td><td data-id="2019-3-1" class="vdpCell selectable outOfRange"><div class="vdpCellContent">1</div></td><td data-id="2019-3-2" class="vdpCell selectable outOfRange"><div class="vdpCellContent">2</div></td><td data-id="2019-3-3" class="vdpCell selectable outOfRange"><div class="vdpCellContent">3</div></td></tr></tbody></table> <!----></div></div></div></div> <details><summary>
+    Show code
+    </summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>date-pick</span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>date<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:hasInputElement</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>false<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>date-pick</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> DatePick <span class="token keyword">from</span> <span class="token string">'vue-date-pick'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">{</span>DatePick<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        date<span class="token punctuation">:</span> <span class="token string">'2019-02-12'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></details> <h2 id="date-format"><a href="#date-format" aria-hidden="true" class="header-anchor">#</a> Date format</h2> <p>Simple date picker with custom format (default is 'YYYY-MM-DD'):</p> <div class="vdpComponent datePickExample vdpWithInput"><input type="text" value="2019.01.01"> <button type="button" class="vdpClearInput"></button> <!----></div> <details><summary>
+    Show code
+    </summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>date-pick</span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>date<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:format</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>YYYY.MM.DD<span class="token punctuation">'</span><span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>date-pick</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> DatePick <span class="token keyword">from</span> <span class="token string">'vue-date-pick'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">{</span>DatePick<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        date<span class="token punctuation">:</span> <span class="token string">'2019.01.01'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></details> <h2 id="display-format"><a href="#display-format" aria-hidden="true" class="header-anchor">#</a> Display format</h2> <p>Use display format prop when UI date format is different from raw data format.</p> <div class="vdpComponent datePickExample vdpWithInput"><input type="text" value="01.01.2019"> <button type="button" class="vdpClearInput"></button> <!----></div> <details><summary>
+    Show code
+    </summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>date-pick</span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>date<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:displayFormat</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>DD.MM.YYYY<span class="token punctuation">'</span><span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>date-pick</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> DatePick <span class="token keyword">from</span> <span class="token string">'vue-date-pick'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">{</span>DatePick<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        date<span class="token punctuation">:</span> <span class="token string">'2019-01-01'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></details> <h2 id="custom-date-parser"><a href="#custom-date-parser" aria-hidden="true" class="header-anchor">#</a> Custom date parser</h2> <p>Vue date pick comes with simple date parser.
+If you need to work with complex date formats feel free to inject implementation of your choice.</p> <div class="vdpComponent datePickExample vdpWithInput"><input type="text" value="Monday November 12th, 2018" size="32"> <button type="button" class="vdpClearInput"></button> <!----></div> <details><summary>
+    Show code
+    </summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>date-pick</span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>date<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:format</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>format<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:parseDate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>parseDate<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:formatDate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>formatDate<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:inputAttributes</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{size: 32}<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>date-pick</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> DatePick <span class="token keyword">from</span> <span class="token string">'vue-date-pick'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> fecha <span class="token keyword">from</span> <span class="token string">'fecha'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">{</span>DatePick<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        format<span class="token punctuation">:</span> <span class="token string">'dddd MMMM Do, YYYY'</span><span class="token punctuation">,</span>
+        date<span class="token punctuation">:</span> fecha<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'dddd MMMM Do, YYYY'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token function">parseDate</span><span class="token punctuation">(</span>dateString<span class="token punctuation">,</span> format<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> fecha<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>dateString<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">formatDate</span><span class="token punctuation">(</span>dateObj<span class="token punctuation">,</span> format<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> fecha<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>dateObj<span class="token punctuation">,</span> format<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></details> <h2 id="date-time-picker"><a href="#date-time-picker" aria-hidden="true" class="header-anchor">#</a> Date time picker</h2> <p>Date picker with controls for hours and minutes:</p> <div class="vdpComponent datePickExample vdpWithInput"><input type="text" value="2019-01-01 14:30"> <button type="button" class="vdpClearInput"></button> <!----></div> <details><summary>
+    Show code
+    </summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>date-pick</span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>date<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:pickTime</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:format</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">'</span>YYYY-MM-DD HH:mm<span class="token punctuation">'</span><span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>date-pick</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> DatePick <span class="token keyword">from</span> <span class="token string">'vue-date-pick'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">{</span>DatePick<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        date<span class="token punctuation">:</span> <span class="token string">'2019-01-01 14:30'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></details> <h2 id="disabling-dates"><a href="#disabling-dates" aria-hidden="true" class="header-anchor">#</a> Disabling dates</h2> <p>Set &quot;isDateDisabled&quot; function as component prop to disable dates:</p> <div class="vdpComponent datePickExample vdpWithInput"><input type="text" value=""> <!----> <!----></div> <details><summary>
+    Show code
+    </summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>date-pick</span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>date<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:isDateDisabled</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>isFutureDate<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>date-pick</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> DatePick <span class="token keyword">from</span> <span class="token string">'vue-date-pick'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">{</span>DatePick<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        date<span class="token punctuation">:</span> <span class="token string">''</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token function">isFutureDate</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> currentDate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> date <span class="token operator">&gt;</span> currentDate<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></details> <h2 id="disabling-manual-input"><a href="#disabling-manual-input" aria-hidden="true" class="header-anchor">#</a> Disabling manual input</h2> <p>Manual user input can be disabled by setting input readonly attribute via &quot;inputAttributes&quot; prop.</p> <div class="vdpComponent datePickExample vdpWithInput"><input type="text" value="2019.01.01" readonly="readonly"> <button type="button" class="vdpClearInput"></button> <!----></div> <details><summary>
+    Show code
+    </summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>date-pick</span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>date<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:inputAttributes</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{readonly: true}<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>date-pick</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">import</span> DatePick <span class="token keyword">from</span> <span class="token string">'vue-date-pick'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">{</span>DatePick<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        date<span class="token punctuation">:</span> <span class="token string">'2018-12-29'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></details></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/vue-date-pick/getting-started.html" class="prev">
+          Getting started
+        </a></span> <span class="next"><a href="/vue-date-pick/localization.html">
+          Localization
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/vue-date-pick/assets/js/11.d36093e2.js" defer></script><script src="/vue-date-pick/assets/js/2.23e8b2b7.js" defer></script><script src="/vue-date-pick/assets/js/0.f8216d55.js" defer></script><script src="/vue-date-pick/assets/js/8.c654ab03.js" defer></script><script src="/vue-date-pick/assets/js/5.dd8d30c6.js" defer></script><script src="/vue-date-pick/assets/js/7.b7762a1b.js" defer></script><script src="/vue-date-pick/assets/js/app.44809ad1.js" defer></script>
+  </body>
+</html>

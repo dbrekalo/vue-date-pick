@@ -8,7 +8,7 @@
                         Vue date pick emphasizes performance, elegant and usable UI
                         on all screen sizes and simplicity of configuration.
                         Has no dependencies on css frameworks or date libraries.
-                        Weighs about 8KB.
+                        Weighs less then 5KB.
                     </p>
                     <router-link class="ctaBtn" :to="'/getting-started.html'">Get started</router-link>
                 </div>

@@ -358,9 +358,9 @@ $vdpColor: #7485c2 !default;
 
     position: absolute; top: 0; left: 0; overflow: hidden;
     height: 100%; width: 100%; outline: none; padding: 0;
-    background: transparent;
+    appearance: none; border-radius: 0; background: transparent;
 
-    -moz-appearance:textfield;
+    -webkit-appearance: none; -moz-appearance: none; appearance: none;
 
 }
 

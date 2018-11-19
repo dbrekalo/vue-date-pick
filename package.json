@@ -65,6 +65,7 @@
     "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "vue-loader": "^15.4.2",
     "vuepress": "^0.14.4",
     "webpack": "^4.25.1",

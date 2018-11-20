@@ -304,10 +304,19 @@ $vdpColor: #7485c2 !default;
 
 }
 
-.vdpCell.selectable:hover .vdpCellContent,
 .vdpCell.selected .vdpCellContent {
 
     color: #fff; background: $vdpColor;
+
+}
+
+@media (hover: hover) {
+
+    .vdpCell.selectable:hover .vdpCellContent {
+
+        color: #fff; background: $vdpColor;
+
+    }
 
 }
 

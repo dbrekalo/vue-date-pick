@@ -394,23 +394,26 @@ export default {
 
             };
 
-            const date = new Date(
+            const resolvedDate = new Date(
                 [paddNum(year, 4), paddNum(month, 2), paddNum(day, 2)].join('-')
             );
 
-            if (isNaN(date)) {
+            if (isNaN(resolvedDate)) {
                 return undefined;
+            } else {
+
+                const date = new Date(year, month - 1, day);
+
+                [
+                    [hours, 'setHours'],
+                    [minutes, 'setMinutes'],
+                    [seconds, 'setSeconds']
+                ].forEach(([value, method]) => {
+                    typeof value !== 'undefined' && date[method](value);
+                });
+
+                return date;
             }
-
-            [
-                [hours, 'setHours'],
-                [minutes, 'setMinutes'],
-                [seconds, 'setSeconds']
-            ].forEach(([value, method]) => {
-                typeof value !== 'undefined' && date[method](value);
-            });
-
-            return date;
 
         },
 

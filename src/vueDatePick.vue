@@ -79,6 +79,7 @@
                                     v-bind:class="{
                                         selectable: !item.disabled,
                                         selected: item.selected,
+                                        marked: item.marked,
                                         disabled: item.disabled,
                                         today: item.today,
                                         outOfRange: item.outOfRange
@@ -160,6 +161,7 @@ export default {
         prevMonthCaption: {type: String, default: 'Previous month'},
         setTimeCaption: {type: String, default: 'Set time:'},
         mobileBreakpointWidth: {type: Number, default: 500},
+        markedDates: {type: Array, default: () => ([])},
         weekdays: {
             type: Array,
             default: () => ([
@@ -252,6 +254,14 @@ export default {
                     day.date.getFullYear(), day.date.getMonth() + 1, day.date.getDate()
                 ].join('-');
                 day.selected = this.valueDate ? areSameDates(day.date, this.valueDate) : false;
+                if (this.markedDates.length > 0 && !day.selected) {
+                    for (let i = 0; i < this.markedDates.length; i++) {
+                        if (areSameDates(day.date, this.parseDateString(this.markedDates[i], this.format))) {
+                            day.marked = true;
+                            break;
+                        }
+                    }
+                }
             });
 
             return chunkArray(days, 7);

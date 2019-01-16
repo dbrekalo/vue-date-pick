@@ -18,7 +18,8 @@ module.exports = {
         filename: 'vueDatePick.js',
         library: 'VueDatePick',
         libraryExport: 'default',
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
+        globalObject: 'typeof self !== \'undefined\' ? self : this'
     },
 
     module: {

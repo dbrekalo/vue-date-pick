@@ -7,8 +7,8 @@
     <meta name="description" content="">
     
     
-    <link rel="preload" href="/vue-date-pick/assets/css/0.styles.ce7ae4c8.css" as="style"><link rel="preload" href="/vue-date-pick/assets/js/app.375de433.js" as="script"><link rel="preload" href="/vue-date-pick/assets/js/10.4c9864a4.js" as="script"><link rel="prefetch" href="/vue-date-pick/assets/js/1.3b377069.js"><link rel="prefetch" href="/vue-date-pick/assets/js/11.36d85a00.js"><link rel="prefetch" href="/vue-date-pick/assets/js/12.fdc7d0e8.js"><link rel="prefetch" href="/vue-date-pick/assets/js/13.9475b037.js"><link rel="prefetch" href="/vue-date-pick/assets/js/14.067bb68d.js"><link rel="prefetch" href="/vue-date-pick/assets/js/15.ccbda46f.js"><link rel="prefetch" href="/vue-date-pick/assets/js/3.902b8b88.js"><link rel="prefetch" href="/vue-date-pick/assets/js/4.83930e2e.js"><link rel="prefetch" href="/vue-date-pick/assets/js/5.d61e83a3.js"><link rel="prefetch" href="/vue-date-pick/assets/js/6.54b987b3.js"><link rel="prefetch" href="/vue-date-pick/assets/js/7.2f16b400.js"><link rel="prefetch" href="/vue-date-pick/assets/js/8.eb595564.js"><link rel="prefetch" href="/vue-date-pick/assets/js/9.2110eb1a.js">
-    <link rel="stylesheet" href="/vue-date-pick/assets/css/0.styles.ce7ae4c8.css">
+    <link rel="preload" href="/vue-date-pick/assets/css/0.styles.1948cffe.css" as="style"><link rel="preload" href="/vue-date-pick/assets/js/app.580e3be6.js" as="script"><link rel="preload" href="/vue-date-pick/assets/js/11.4c1a1f81.js" as="script"><link rel="prefetch" href="/vue-date-pick/assets/js/1.ecee132c.js"><link rel="prefetch" href="/vue-date-pick/assets/js/10.d05b076c.js"><link rel="prefetch" href="/vue-date-pick/assets/js/12.0cc9c2ef.js"><link rel="prefetch" href="/vue-date-pick/assets/js/13.64a33efb.js"><link rel="prefetch" href="/vue-date-pick/assets/js/14.7e1c0e2b.js"><link rel="prefetch" href="/vue-date-pick/assets/js/15.021acbe7.js"><link rel="prefetch" href="/vue-date-pick/assets/js/16.2b61c765.js"><link rel="prefetch" href="/vue-date-pick/assets/js/3.23de819f.js"><link rel="prefetch" href="/vue-date-pick/assets/js/4.0aad6a1c.js"><link rel="prefetch" href="/vue-date-pick/assets/js/5.5d787459.js"><link rel="prefetch" href="/vue-date-pick/assets/js/6.0beb70d8.js"><link rel="prefetch" href="/vue-date-pick/assets/js/7.30b9ff41.js"><link rel="prefetch" href="/vue-date-pick/assets/js/8.c26b46fa.js"><link rel="prefetch" href="/vue-date-pick/assets/js/9.55253f76.js">
+    <link rel="stylesheet" href="/vue-date-pick/assets/css/0.styles.1948cffe.css">
   </head>
   <body>
     <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-date-pick/" class="home-link router-link-active"><!----> <span class="site-name">Vue date pick</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-date-pick/getting-started.html" class="nav-link">Documentation</a></div><div class="nav-item"><a href="/vue-date-pick/examples.html" class="nav-link">Examples</a></div><div class="nav-item"><a href="https://github.com/dbrekalo/vue-date-pick" target="_blank" rel="noopener noreferrer" class="nav-link external">
@@ -28,6 +28,10 @@
     <span class="token property">background</span><span class="token punctuation">:</span> #cc99cd<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
+<span class="token selector">.vdpCell.marked .vdpCellContent</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #c2747d<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
 <span class="token selector">.vdpCell.today</span> <span class="token punctuation">{</span>
     <span class="token property">color</span><span class="token punctuation">:</span> #cc99cd<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -37,7 +41,8 @@
     <span class="token property">border-bottom-color</span><span class="token punctuation">:</span> #cc99cd<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre></div><h2 id="scss"><a href="#scss" aria-hidden="true" class="header-anchor">#</a> SCSS</h2> <p>If you are compiling your css files with sass - library source scss file can be imported.
-Add $vdpColor to your scss variables to override default styling.</p> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$vdpColor</span></span><span class="token punctuation">:</span> #cc99cd<span class="token punctuation">;</span>
+Add $vdpColor and $markedColor to your scss variables to override default styling.</p> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$vdpColor</span></span><span class="token punctuation">:</span> #cc99cd<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$markedColor</span></span><span class="token punctuation">:</span> #c2747d<span class="token punctuation">;</span>
 <span class="token keyword">@import</span> <span class="token string">'vue-date-pick/src/vueDatePick.scss'</span><span class="token punctuation">;</span>
 </code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
         ←
@@ -48,6 +53,6 @@ Add $vdpColor to your scss variables to override default styling.</p> <div class
         </a>
         →
       </span></p></div> </div> <!----></div></div>
-    <script src="/vue-date-pick/assets/js/app.375de433.js" defer></script><script src="/vue-date-pick/assets/js/10.4c9864a4.js" defer></script>
+    <script src="/vue-date-pick/assets/js/app.580e3be6.js" defer></script><script src="/vue-date-pick/assets/js/11.4c1a1f81.js" defer></script>
   </body>
 </html>

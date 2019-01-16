@@ -1,4 +1,5 @@
 $vdpColor: #7485c2 !default;
+$markedColor: #c2747d !default;
 
 @keyframes vdpSlideFromLeft {
     from { opacity: 0; transform: translate3d(-0.5em,0,0); }
@@ -307,6 +308,12 @@ $vdpColor: #7485c2 !default;
 .vdpCell.selected .vdpCellContent {
 
     color: #fff; background: $vdpColor;
+
+}
+
+.vdpCell.marked .vdpCellContent {
+
+    color: #fff; background: $markedColor;
 
 }
 

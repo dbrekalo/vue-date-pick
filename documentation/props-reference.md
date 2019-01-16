@@ -19,6 +19,7 @@ nextMonthCaption: {type: String, default: 'Next month'},
 prevMonthCaption: {type: String, default: 'Previous month'},
 setTimeCaption: {type: String, default: 'Set time:'},
 mobileBreakpointWidth: {type: Number, default: 500},
+markedDates: {type: Array, default: () => ([])},
 weekdays: {
     type: Array,
     default: () => ([

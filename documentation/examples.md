@@ -31,6 +31,43 @@ export default {
 ```
 </details>
 
+## Marked dates on calendar
+Default marked dates on the calendar widget.
+
+<calendar-marked></calendar-marked>
+
+<details>
+    <summary>
+    Show code
+    </summary>
+
+```vue
+<template>
+    <date-pick
+        v-model="date"
+        :inputAttributes="{readonly: true}"
+        :markedDates="markedDates"
+    ></date-pick>
+</template>
+
+<script>
+import DatePick from 'vue-date-pick';
+
+export default {
+    components: {DatePick},
+    data: () => ({
+        date: "2019-02-12",
+        markedDates: [
+            "2019-02-16",
+            "2019-02-21",
+            "2019-02-25",
+        ]
+    })
+};
+</script>
+```
+</details>
+
 ## Date format
 Simple date picker with custom format (default is 'YYYY-MM-DD'):
 

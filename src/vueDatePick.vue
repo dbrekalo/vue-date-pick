@@ -494,7 +494,7 @@ export default {
 
                 this.closeEventListener = e => this.inspectCloseEvent(e);
 
-                ['click', 'keyup'].forEach(
+                ['click', 'keyup', 'focusin'].forEach(
                     eventName => document.addEventListener(eventName, this.closeEventListener)
                 );
 

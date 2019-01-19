@@ -8,6 +8,7 @@
             v-on:input="processUserInput($event.target.value)"
             v-on:focus="open"
             v-on:click="open"
+            :class="inputClass"
         >
         <button
             v-if="hasInputElement && inputValue"
@@ -150,6 +151,7 @@ export default {
         displayFormat: {type: String},
         hasInputElement: {type: Boolean, default: true},
         inputAttributes: {type: Object},
+        inputClass: {type: String},
         selectableYearRange: {type: Number, default: 40},
         parseDate: {type: Function},
         formatDate: {type: Function},

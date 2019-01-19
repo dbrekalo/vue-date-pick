@@ -138,6 +138,32 @@ describe('Vue date pick', () => {
 
     });
 
+    it('sets marked cells', () => {
+
+        const wrapper = mount(VueDatePick);
+        wrapper.vm.open();
+
+        assert.isFalse(wrapper.find('td.marked').exists());
+
+        assert.isTrue(wrapper.vm.isValidValue); // vue test utils sync bug
+
+        wrapper.setProps({
+            value: '2019-12-12',
+            markedDates: [
+                '2019-12-16',
+                '2019-12-21',
+                '2019-12-25'
+            ]
+        });
+
+        assert.isTrue(wrapper.find('td[data-id="2019-12-16"]').classes('marked'));
+        assert.isTrue(wrapper.find('td[data-id="2019-12-21"]').classes('marked'));
+        assert.isTrue(wrapper.find('td[data-id="2019-12-25"]').classes('marked'));
+
+        wrapper.destroy();
+
+    });
+
     it('switches periods correctly', () => {
 
         const wrapper = mount(VueDatePick, {

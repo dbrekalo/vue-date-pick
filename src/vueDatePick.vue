@@ -173,7 +173,8 @@ export default {
                 'May', 'June', 'July', 'August',
                 'September', 'October', 'November', 'December'
             ])
-        }
+        },
+        startWeekOnSunday: {type: Boolean, default: false}
     },
 
     data() {
@@ -214,12 +215,13 @@ export default {
             const days = [];
             const date = new Date(year, month, 1);
             const today = new Date();
+            const offset = this.startWeekOnSunday ? 1 : 0;
 
             // append prev month dates
             const startDay = date.getDay() || 7;
 
-            if (startDay > 1) {
-                for (let i = startDay - 2; i >= 0; i--) {
+            if (startDay > (1 - offset)) {
+                for (let i = startDay - (2 - offset); i >= 0; i--) {
 
                     const prevDate = new Date(date);
                     prevDate.setDate(-i);
@@ -319,6 +321,12 @@ export default {
 
         }
 
+    },
+
+    mounted() {
+        if (this.startWeekOnSunday) {
+            this.setWeekdaysToStartOnSunday();
+        }
     },
 
     beforeDestroy() {
@@ -634,6 +642,10 @@ export default {
 
             this.$emit('input', this.formatDateToString(currentDate, this.format));
 
+        },
+
+        setWeekdaysToStartOnSunday() {
+            this.weekdays.unshift(this.weekdays.pop());
         }
 
     }

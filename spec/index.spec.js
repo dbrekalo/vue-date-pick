@@ -121,6 +121,20 @@ describe('Vue date pick', () => {
 
     });
 
+    it('starts week on monday', () => {
+
+        const wrapper = mount(VueDatePick, {
+            propsData: {
+                value: '2017-12-29'
+            }
+        });
+
+        wrapper.vm.open();
+
+        assert.equal('Mon', wrapper.find('.vdpHeadCell:first-of-type span').text().trim());
+        assert.equal('Sun', wrapper.find('.vdpHeadCell:last-of-type span').text().trim());
+    });
+
     it('can start week on sunday', () => {
 
         const wrapper = mount(VueDatePick, {

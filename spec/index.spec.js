@@ -121,6 +121,27 @@ describe('Vue date pick', () => {
 
     });
 
+    it('can start week on sunday', () => {
+
+        const wrapper = mount(VueDatePick, {
+            propsData: {
+                value: '2017-12-29',
+                startWeekOnSunday: true
+            }
+        });
+
+        wrapper.vm.open();
+
+        assert.equal('Sun', wrapper.find('.vdpHeadCell:first-of-type span').text().trim());
+        assert.equal('Sat', wrapper.find('.vdpHeadCell:last-of-type span').text().trim());
+
+        // Change year and assert again
+        wrapper.setProps({value: '2018-12-29'});
+
+        assert.equal('Sun', wrapper.find('.vdpHeadCell:first-of-type span').text().trim());
+        assert.equal('Sat', wrapper.find('.vdpHeadCell:last-of-type span').text().trim());
+    });
+
     it('sets selected cells', () => {
 
         const wrapper = mount(VueDatePick);

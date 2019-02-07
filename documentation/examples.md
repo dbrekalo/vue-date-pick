@@ -245,3 +245,37 @@ export default {
 </script>
 ```
 </details>
+
+## Start week on Sunday
+Sunday can be set as the first day of the week via "startWeekOnSunday" prop.
+
+<picker-wrapper
+    value="2019.01.01"
+    :pickerProps="{inputAttributes: {startWeekOnSunday: true}}"
+></picker-wrapper>
+
+<details>
+    <summary>
+    Show code
+    </summary>
+
+```vue
+<template>
+    <date-pick
+        v-model="date"
+        :inputAttributes="{startWeekOnSunday: true}"
+    ></date-pick>
+</template>
+
+<script>
+import DatePick from 'vue-date-pick';
+
+export default {
+    components: {DatePick},
+    data: () => ({
+        date: '2019-01-01'
+    })
+};
+</script>
+```
+</details>

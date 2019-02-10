@@ -63,7 +63,7 @@
                     <table class="vdpTable">
                         <thead>
                             <tr>
-                                <th class="vdpHeadCell" v-for="weekday in weekdays" v-bind:key="weekday">
+                                <th class="vdpHeadCell" v-for="weekday in weekdaysSorted" v-bind:key="weekday">
                                     <span class="vdpHeadCellContent">{{weekday}}</span>
                                 </th>
                             </tr>
@@ -173,7 +173,8 @@ export default {
                 'May', 'June', 'July', 'August',
                 'September', 'October', 'November', 'December'
             ])
-        }
+        },
+        startWeekOnSunday: {type: Boolean, default: false}
     },
 
     data() {
@@ -214,12 +215,13 @@ export default {
             const days = [];
             const date = new Date(year, month, 1);
             const today = new Date();
+            const offset = this.startWeekOnSunday ? 1 : 0;
 
             // append prev month dates
             const startDay = date.getDay() || 7;
 
-            if (startDay > 1) {
-                for (let i = startDay - 2; i >= 0; i--) {
+            if (startDay > (1 - offset)) {
+                for (let i = startDay - (2 - offset); i >= 0; i--) {
 
                     const prevDate = new Date(date);
                     prevDate.setDate(-i);
@@ -291,6 +293,18 @@ export default {
         directionClass() {
 
             return this.direction ? `vdp${this.direction}Direction` : undefined;
+
+        },
+
+        weekdaysSorted() {
+
+            if (this.startWeekOnSunday) {
+                const weekdays = this.weekdays.slice();
+                weekdays.unshift(weekdays.pop());
+                return weekdays;
+            } else {
+                return this.weekdays;
+            }
 
         }
 

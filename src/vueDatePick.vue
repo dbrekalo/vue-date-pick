@@ -419,6 +419,7 @@ export default {
                 const date = new Date(year, month - 1, day);
 
                 [
+                    [year, 'setFullYear'],
                     [hours, 'setHours'],
                     [minutes, 'setMinutes'],
                     [seconds, 'setSeconds']

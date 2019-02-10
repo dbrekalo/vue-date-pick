@@ -251,7 +251,7 @@ Sunday can be set as the first day of the week via "startWeekOnSunday" prop.
 
 <picker-wrapper
     value="2019.01.01"
-    :pickerProps="{inputAttributes: {startWeekOnSunday: true}}"
+    :pickerProps="{startWeekOnSunday: true}"
 ></picker-wrapper>
 
 <details>
@@ -263,7 +263,7 @@ Sunday can be set as the first day of the week via "startWeekOnSunday" prop.
 <template>
     <date-pick
         v-model="date"
-        :inputAttributes="{startWeekOnSunday: true}"
+        :startWeekOnSunday="true"
     ></date-pick>
 </template>
 

@@ -33,5 +33,6 @@ months: {
         'September', 'October', 'November', 'December'
     ])
 },
-startWeekOnSunday: {type: Boolean, default: false}
+startWeekOnSunday: {type: Boolean, default: false},
+showClearButton: {type: Boolean, default: true}
 ```

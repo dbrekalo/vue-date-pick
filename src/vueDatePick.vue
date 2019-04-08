@@ -10,7 +10,7 @@
             v-on:click="open"
         >
         <button
-            v-if="hasInputElement && inputValue"
+            v-if="hasInputElement && inputValue && showClearButton"
             class="vdpClearInput"
             type="button"
             v-on:click="clear"
@@ -174,7 +174,8 @@ export default {
                 'September', 'October', 'November', 'December'
             ])
         },
-        startWeekOnSunday: {type: Boolean, default: false}
+        startWeekOnSunday: {type: Boolean, default: false},
+        showClearButton: {type: Boolean, default: true}
     },
 
     data() {

@@ -241,4 +241,14 @@ describe('Vue date pick', () => {
 
     });
 
+    it('supports disabling clear button', () => {
+
+        const wrapper = mount(VueDatePick, {propsData: {
+            showClearButton: false
+        }});
+
+        assert.isFalse(wrapper.contains('.vdpClearInput'));
+
+    });
+
 });

@@ -191,6 +191,9 @@ Set "isDateDisabled" function as component prop to disable dates:
     <date-pick
         v-model="date"
         :isDateDisabled="isFutureDate"
+        :selectableYearRange="2"
+        :selectablePastYears="false"
+        :individualDatesDisabled="['2019-4-10', '2019-4-11']"
     ></date-pick>
 </template>
 

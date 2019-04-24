@@ -150,12 +150,15 @@ export default {
         hasInputElement: {type: Boolean, default: true},
         inputAttributes: {type: Object},
         selectableYearRange: {type: Number, default: 40},
+        selectablePastYears: {type: Boolean, default: true},
+        selectableFutureYears: {type: Boolean, default: true},
         parseDate: {type: Function},
         formatDate: {type: Function},
         pickTime: {type: Boolean, default: false},
         pickMinutes: {type: Boolean, default: true},
         pickSeconds: {type: Boolean, default: false},
         isDateDisabled: {type: Function, default: () => false},
+        individualDatesDisabled: {type: Array, default: () => ([])},
         nextMonthCaption: {type: String, default: 'Next month'},
         prevMonthCaption: {type: String, default: 'Previous month'},
         setTimeCaption: {type: String, default: 'Set time:'},
@@ -248,11 +251,13 @@ export default {
 
             // define day states
             days.forEach(day => {
-                day.disabled = this.isDateDisabled(day.date);
-                day.today = areSameDates(day.date, today);
-                day.dateKey = [
+                const key = [
                     day.date.getFullYear(), day.date.getMonth() + 1, day.date.getDate()
                 ].join('-');
+
+                day.disabled = ((this.individualDatesDisabled.indexOf(key) !== -1) ? true : this.isDateDisabled(day.date));
+                day.today = areSameDates(day.date, today);
+                day.dateKey = key;
                 day.selected = this.valueDate ? areSameDates(day.date, this.valueDate) : false;
             });
 
@@ -264,8 +269,8 @@ export default {
 
             const years = [];
             const currentYear = this.currentPeriod.year;
-            const startYear = currentYear - this.selectableYearRange;
-            const endYear = currentYear + this.selectableYearRange;
+            const startYear = ((this.selectablePastYears === true) ? currentYear - this.selectableYearRange : currentYear);
+            const endYear = ((this.selectableFutureYears === true) ? currentYear + this.selectableYearRange : currentYear);
 
             for (let i = startYear; i <= endYear; i++) {
                 years.push(i);

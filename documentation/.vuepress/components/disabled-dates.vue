@@ -3,6 +3,9 @@
         class="datePickExample"
         v-model="date"
         :isDateDisabled="isFutureDate"
+        :selectableYearRange="2"
+        :selectablePastYears="false"
+        :individualDatesDisabled="['2019-4-10', '2019-4-11']"
     ></date-pick>
 </template>
 

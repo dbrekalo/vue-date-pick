@@ -246,6 +246,40 @@ export default {
 ```
 </details>
 
+## Disable editing and picker UI
+Disable input editing and calendar UI by setting "editable" prop to false.
+
+<picker-wrapper
+    value="2019.01.01"
+    :pickerProps="{editable: false}"
+></picker-wrapper>
+
+<details>
+    <summary>
+    Show code
+    </summary>
+
+```vue
+<template>
+    <date-pick
+        v-model="date"
+        :editable="false"
+    ></date-pick>
+</template>
+
+<script>
+import DatePick from 'vue-date-pick';
+
+export default {
+    components: {DatePick},
+    data: () => ({
+        date: '2018-12-29'
+    })
+};
+</script>
+```
+</details>
+
 ## Start week on Sunday
 Sunday can be set as the first day of the week via "startWeekOnSunday" prop.
 

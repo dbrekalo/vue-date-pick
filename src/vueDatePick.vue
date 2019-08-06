@@ -441,7 +441,7 @@ export default {
         formatSimpleDateToString(date, dateFormat) {
 
             return dateFormat
-                .replace(yearRE, match => date.getFullYear())
+                .replace(yearRE, match => Number(date.getFullYear().toString().slice(-match.length)))
                 .replace(monthRE, match => paddNum(date.getMonth() + 1, match.length))
                 .replace(dayRE, match => paddNum(date.getDate(), match.length))
                 .replace(hoursRE, match => paddNum(date.getHours(), match.length))

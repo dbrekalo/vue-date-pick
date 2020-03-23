@@ -337,6 +337,13 @@ export default {
                 : undefined
             ;
 
+            if (currentDate !== oldDate) {
+                this.$emit('periodChange', {
+                    year: currentPeriod.year,
+                    month: currentPeriod.month
+                });
+            }
+
         }
 
     },

@@ -162,6 +162,7 @@ export default {
         prevMonthCaption: {type: String, default: 'Previous month'},
         setTimeCaption: {type: String, default: 'Set time:'},
         mobileBreakpointWidth: {type: Number, default: 500},
+        maxSelectableYear: {type: Number, default: 0},
         weekdays: {
             type: Array,
             default: () => ([
@@ -271,7 +272,7 @@ export default {
             const years = [];
             const currentYear = this.currentPeriod.year;
             const startYear = currentYear - this.selectableYearRange;
-            const endYear = currentYear + this.selectableYearRange;
+            const endYear = this.maxSelectableYear > 0 ? this.maxSelectableYear : currentYear + this.selectableYearRange;
 
             for (let i = startYear; i <= endYear; i++) {
                 years.push(i);

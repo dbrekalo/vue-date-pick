@@ -151,7 +151,7 @@ export default {
         editable: {type: Boolean, default: true},
         hasInputElement: {type: Boolean, default: true},
         inputAttributes: {type: Object},
-        selectableYearRange: {type: Number, default: 40},
+        selectableYearRange: {type: [Number, Object, Function], default: 40},
         parseDate: {type: Function},
         formatDate: {type: Function},
         pickTime: {type: Boolean, default: false},
@@ -268,16 +268,32 @@ export default {
 
         yearRange() {
 
-            const years = [];
             const currentYear = this.currentPeriod.year;
-            const startYear = currentYear - this.selectableYearRange;
-            const endYear = currentYear + this.selectableYearRange;
+            const userRange = this.selectableYearRange;
+            const userRangeType = typeof userRange;
 
-            for (let i = startYear; i <= endYear; i++) {
-                years.push(i);
+            let yearsRange = [];
+
+            if (userRangeType === 'number') {
+                yearsRange = range(
+                    currentYear - userRange,
+                    currentYear + userRange
+                );
+            } else if (userRangeType === 'object') {
+                yearsRange = range(
+                    userRange.from,
+                    userRange.to
+                );
+            } else if (userRangeType === 'function') {
+                yearsRange = userRange(this);
             }
 
-            return years;
+            if (yearsRange.indexOf(currentYear) < 0) {
+                yearsRange.push(currentYear);
+                yearsRange = yearsRange.sort();
+            }
+
+            return yearsRange;
 
         },
 
@@ -662,7 +678,7 @@ export default {
 
             this.$emit('input', this.formatDateToString(currentDate, this.format));
 
-        }
+        },
 
     }
 
@@ -697,6 +713,17 @@ function areSameDates(date1, date2) {
         (date1.getMonth() === date2.getMonth()) &&
         (date1.getFullYear() === date2.getFullYear())
     ;
+
+}
+
+function range(start, end) {
+
+    const results = [];
+
+    for (let i = start; i <= end; i++) {
+        results.push(i);
+    }
+    return results;
 
 }
 

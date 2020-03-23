@@ -313,3 +313,40 @@ export default {
 </script>
 ```
 </details>
+
+## Change selectable years
+Dropdown for selecteble years can be customized via selectableYearRange prop
+(default value is 40 years from and after current year).
+
+<picker-wrapper
+    value="2019.01.01"
+    :pickerProps="{
+        selectableYearRange: {from: 2015, to: 2020}
+    }"
+></picker-wrapper>
+
+<details>
+    <summary>
+    Show code
+    </summary>
+
+```vue
+<template>
+    <date-pick
+        v-model="date"
+        :selectableYearRange="{from: 1985, to: 2020}"
+    ></date-pick>
+</template>
+
+<script>
+import DatePick from 'vue-date-pick';
+
+export default {
+    components: {DatePick},
+    data: () => ({
+        date: '2019-01-01'
+    })
+};
+</script>
+```
+</details>

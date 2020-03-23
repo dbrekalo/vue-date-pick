@@ -678,7 +678,7 @@ export default {
 
             this.$emit('input', this.formatDateToString(currentDate, this.format));
 
-        },
+        }
 
     }
 

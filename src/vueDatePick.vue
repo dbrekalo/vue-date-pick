@@ -64,7 +64,7 @@
                     <table class="vdpTable">
                         <thead>
                             <tr>
-                                <th class="vdpHeadCell" v-for="weekday in weekdaysSorted" v-bind:key="weekday">
+                                <th class="vdpHeadCell" v-for="(weekday, weekdayIndex) in weekdaysSorted" v-bind:key="weekdayIndex">
                                     <span class="vdpHeadCellContent">{{weekday}}</span>
                                 </th>
                             </tr>

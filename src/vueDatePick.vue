@@ -537,7 +537,7 @@ export default {
 
             if (this.closeEventListener) {
 
-                ['click', 'keyup'].forEach(
+                ['click', 'keyup', 'focusin'].forEach(
                     eventName => document.removeEventListener(eventName, this.closeEventListener)
                 );
 

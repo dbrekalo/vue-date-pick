@@ -1,60 +1,60 @@
 <template>
-    <div class="vdpComponent" v-bind:class="{vdpWithInput: hasInputElement}">
+    <div class="vdpComponent" :class="{vdpWithInput: hasInputElement}">
         <input
             v-if="hasInputElement"
             type="text"
             v-bind="inputAttributes"
-            v-bind:readonly="isReadOnly"
-            v-bind:value="inputValue"
-            v-on:input="editable && processUserInput($event.target.value)"
-            v-on:focus="editable && open()"
-            v-on:click="editable && open()"
+            :readonly="isReadOnly"
+            :value="inputValue"
+            @input="editable && processUserInput($event.target.value)"
+            @focus="editable && open()"
+            @click="editable && open()"
         >
         <button
             v-if="editable && hasInputElement && inputValue"
             class="vdpClearInput"
             type="button"
-            v-on:click="clear"
+            @click="clear"
         ></button>
         <transition name="vdp-toggle-calendar">
             <div
                 v-if="opened"
                 class="vdpOuterWrap"
                 ref="outerWrap"
-                v-on:click="closeViaOverlay"
-                v-bind:class="[positionClass, {vdpFloating: hasInputElement}]"
+                @click="closeViaOverlay"
+                :class="[positionClass, {vdpFloating: hasInputElement}]"
             >
                 <div class="vdpInnerWrap">
                     <header class="vdpHeader">
                         <button
                             class="vdpArrow vdpArrowPrev"
-                            v-bind:title="prevMonthCaption"
+                            :title="prevMonthCaption"
                             type="button"
-                            v-on:click="incrementMonth(-1)"
+                            @click="incrementMonth(-1)"
                         >{{ prevMonthCaption }}</button>
                         <button
                             class="vdpArrow vdpArrowNext"
                             type="button"
-                            v-bind:title="nextMonthCaption"
-                            v-on:click="incrementMonth(1)"
+                            :title="nextMonthCaption"
+                            @click="incrementMonth(1)"
                         >{{ nextMonthCaption }}</button>
                         <div class="vdpPeriodControls">
                             <div class="vdpPeriodControl">
-                                <button v-bind:class="directionClass" v-bind:key="currentPeriod.month" type="button">
+                                <button :class="directionClass" :key="currentPeriod.month" type="button">
                                     {{ months[currentPeriod.month] }}
                                 </button>
                                 <select v-model="currentPeriod.month">
-                                    <option v-for="(month, index) in months" v-bind:value="index" v-bind:key="month">
+                                    <option v-for="(month, index) in months" :value="index" :key="month">
                                         {{ month }}
                                     </option>
                                 </select>
                             </div>
                             <div class="vdpPeriodControl">
-                                <button v-bind:class="directionClass" v-bind:key="currentPeriod.year" type="button">
+                                <button :class="directionClass" :key="currentPeriod.year" type="button">
                                     {{ currentPeriod.year }}
                                 </button>
                                 <select v-model="currentPeriod.year">
-                                    <option v-for="year in yearRange" v-bind:value="year" v-bind:key="year">
+                                    <option v-for="year in yearRange" :value="year" :key="year">
                                         {{ year }}
                                     </option>
                                 </select>
@@ -64,29 +64,29 @@
                     <table class="vdpTable">
                         <thead>
                             <tr>
-                                <th class="vdpHeadCell" v-for="(weekday, weekdayIndex) in weekdaysSorted" v-bind:key="weekdayIndex">
+                                <th class="vdpHeadCell" v-for="(weekday, weekdayIndex) in weekdaysSorted" :key="weekdayIndex">
                                     <span class="vdpHeadCellContent">{{weekday}}</span>
                                 </th>
                             </tr>
                         </thead>
                         <tbody
-                            v-bind:key="currentPeriod.year + '-' + currentPeriod.month"
-                            v-bind:class="directionClass"
+                            :key="currentPeriod.year + '-' + currentPeriod.month"
+                            :class="directionClass"
                         >
-                            <tr class="vdpRow" v-for="(week, weekIndex) in currentPeriodDates" v-bind:key="weekIndex">
+                            <tr class="vdpRow" v-for="(week, weekIndex) in currentPeriodDates" :key="weekIndex">
                                 <td
                                     class="vdpCell"
                                     v-for="item in week"
-                                    v-bind:class="{
+                                    :class="{
                                         selectable: !item.disabled,
                                         selected: item.selected,
                                         disabled: item.disabled,
                                         today: item.today,
                                         outOfRange: item.outOfRange
                                     }"
-                                    v-bind:data-id="item.dateKey"
-                                    v-bind:key="item.dateKey"
-                                    v-on:click="selectDateItem(item)"
+                                    :data-id="item.dateKey"
+                                    :key="item.dateKey"
+                                    @click="selectDateItem(item)"
                                 >
                                     <div
                                         class="vdpCellContent"
@@ -98,33 +98,47 @@
                     <div v-if="pickTime && currentTime" class="vdpTimeControls">
                         <span class="vdpTimeCaption">{{ setTimeCaption }}</span>
                         <div class="vdpTimeUnit">
-                            <pre><span>{{ currentTime.hoursPadded }}</span><br></pre>
+                            <pre><span>{{ currentTime.hoursFormatted }}</span><br></pre>
                             <input
                                 type="number" pattern="\d*" class="vdpHoursInput"
-                                v-on:input.prevent="inputTime('setHours', $event)"
-                                v-bind:value="currentTime.hoursPadded"
+                                @input.prevent="inputHours"
+                                @focusin="onTimeInputFocus"
+                                :readonly="isReadOnly"
+                                :value="currentTime.hoursFormatted"
                             >
                         </div>
                         <span v-if="pickMinutes" class="vdpTimeSeparator">:</span>
                         <div v-if="pickMinutes" class="vdpTimeUnit">
-                            <pre><span>{{ currentTime.minutesPadded }}</span><br></pre>
+                            <pre><span>{{ currentTime.minutesFormatted }}</span><br></pre>
                             <input
                                 v-if="pickMinutes"
                                 type="number" pattern="\d*" class="vdpMinutesInput"
-                                v-on:input="inputTime('setMinutes', $event)"
-                                v-bind:value="currentTime.minutesPadded"
+                                @input="inputTime('setMinutes', $event)"
+                                @focusin="onTimeInputFocus"
+                                :readonly="isReadOnly"
+                                :value="currentTime.minutesFormatted"
                             >
                         </div>
                         <span v-if="pickSeconds" class="vdpTimeSeparator">:</span>
                         <div v-if="pickSeconds" class="vdpTimeUnit">
-                            <pre><span>{{ currentTime.secondsPadded }}</span><br></pre>
+                            <pre><span>{{ currentTime.secondsFormatted }}</span><br></pre>
                             <input
                                 v-if="pickSeconds"
                                 type="number" pattern="\d*" class="vdpSecondsInput"
-                                v-on:input="inputTime('setSeconds', $event)"
-                                v-bind:value="currentTime.secondsPadded"
+                                @input="inputTime('setSeconds', $event)"
+                                @focusin="onTimeInputFocus"
+                                :readonly="isReadOnly"
+                                :value="currentTime.secondsFormatted"
                             >
                         </div>
+                        <button
+                            v-if="use12HourClock"
+                            type="button" class="vdp12HourToggleBtn"
+                            :disabled="isReadOnly"
+                            @click="set12HourClock(currentTime.isPM ? 'AM' : 'PM')"
+                        >
+                            {{ currentTime.isPM ? 'PM' : 'AM' }}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -141,27 +155,79 @@ const yearRE = /Y+/;
 const hoursRE = /h+/i;
 const minutesRE = /m+/;
 const secondsRE = /s+/;
+const AMPMClockRE = /A/;
 
 export default {
 
     props: {
-        value: {type: String, default: ''},
-        format: {type: String, default: 'YYYY-MM-DD'},
-        displayFormat: {type: String},
-        editable: {type: Boolean, default: true},
-        hasInputElement: {type: Boolean, default: true},
-        inputAttributes: {type: Object},
-        selectableYearRange: {type: [Number, Object, Function], default: 40},
-        parseDate: {type: Function},
-        formatDate: {type: Function},
-        pickTime: {type: Boolean, default: false},
-        pickMinutes: {type: Boolean, default: true},
-        pickSeconds: {type: Boolean, default: false},
-        isDateDisabled: {type: Function, default: () => false},
-        nextMonthCaption: {type: String, default: 'Next month'},
-        prevMonthCaption: {type: String, default: 'Previous month'},
-        setTimeCaption: {type: String, default: 'Set time:'},
-        mobileBreakpointWidth: {type: Number, default: 500},
+        value: {
+            type: String,
+            default: ''
+        },
+        format: {
+            type: String,
+            default: 'YYYY-MM-DD'
+        },
+        displayFormat: {
+            type: String
+        },
+        editable: {
+            type: Boolean,
+            default: true
+        },
+        hasInputElement: {
+            type: Boolean,
+            default: true
+        },
+        inputAttributes: {
+            type: Object
+        },
+        selectableYearRange: {
+            type: [Number, Object, Function],
+            default: 40
+        },
+        parseDate: {
+            type: Function
+        },
+        formatDate: {
+            type: Function
+        },
+        pickTime: {
+            type: Boolean,
+            default: false
+        },
+        pickMinutes: {
+            type: Boolean,
+            default: true
+        },
+        pickSeconds: {
+            type: Boolean,
+            default: false
+        },
+        use12HourClock: {
+            type: Boolean,
+            default: false
+        },
+        isDateDisabled: {
+            type: Function,
+            default: () => false
+        },
+        nextMonthCaption: {
+            type: String,
+            default: 'Next month'
+        },
+        prevMonthCaption: {
+            type: String,
+            default: 'Previous month'
+        },
+        setTimeCaption: {
+            type: String,
+            default: 'Set time:'
+        },
+        mobileBreakpointWidth: {
+            type: Number,
+            default: 500
+        },
         weekdays: {
             type: Array,
             default: () => ([
@@ -176,7 +242,10 @@ export default {
                 'September', 'October', 'November', 'December'
             ])
         },
-        startWeekOnSunday: {type: Boolean, default: false}
+        startWeekOnSunday: {
+            type: Boolean,
+            default: false
+        }
     },
 
     data() {
@@ -301,14 +370,23 @@ export default {
 
             const currentDate = this.valueDate;
 
-            return currentDate ? {
-                hours: currentDate.getHours(),
-                minutes: currentDate.getMinutes(),
-                seconds: currentDate.getSeconds(),
-                hoursPadded: paddNum(currentDate.getHours(), 1),
-                minutesPadded: paddNum(currentDate.getMinutes(), 2),
-                secondsPadded: paddNum(currentDate.getSeconds(), 2)
-            } : undefined;
+            if (!currentDate) {
+                return undefined;
+            }
+
+            const hours = currentDate.getHours();
+            const minutes = currentDate.getMinutes();
+            const seconds = currentDate.getSeconds();
+
+            return {
+                hours,
+                minutes,
+                seconds,
+                isPM: isPM(hours),
+                hoursFormatted: (this.use12HourClock ? to12HourClock(hours) : hours).toString(),
+                minutesFormatted: paddNum(minutes, 2),
+                secondsFormatted: paddNum(seconds, 2)
+            };
 
         },
 
@@ -467,9 +545,13 @@ export default {
                 .replace(yearRE, match => Number(date.getFullYear().toString().slice(-match.length)))
                 .replace(monthRE, match => paddNum(date.getMonth() + 1, match.length))
                 .replace(dayRE, match => paddNum(date.getDate(), match.length))
-                .replace(hoursRE, match => paddNum(date.getHours(), match.length))
+                .replace(hoursRE, match => paddNum(
+                    AMPMClockRE.test(dateFormat) ? to12HourClock(date.getHours()) : date.getHours(),
+                    match.length
+                ))
                 .replace(minutesRE, match => paddNum(date.getMinutes(), match.length))
                 .replace(secondsRE, match => paddNum(date.getSeconds(), match.length))
+                .replace(AMPMClockRE, match => isPM(date.getHours()) ? 'PM' : 'AM')
             ;
 
         },
@@ -660,24 +742,52 @@ export default {
 
         },
 
+        set12HourClock(value) {
+
+            const currentDate = new Date(this.valueDate);
+            const currentHours = currentDate.getHours();
+
+            currentDate.setHours(value === 'PM'
+                ? currentHours + 12
+                : currentHours - 12
+            );
+
+            this.$emit('input', this.formatDateToString(currentDate, this.format));
+        },
+
+        inputHours(event) {
+
+            const currentDate = new Date(this.valueDate);
+            const currentHours = currentDate.getHours();
+            const targetValue = parseInt(event.target.value, 10) || 0;
+            const minHours = this.use12HourClock ? 1 : 0;
+            const maxHours = this.use12HourClock ? 12 : 23;
+            const numValue = boundNumber(targetValue, minHours, maxHours);
+
+            currentDate.setHours(this.use12HourClock
+                ? to24HourClock(numValue, isPM(currentHours))
+                : numValue
+            );
+            event.target.value = paddNum(numValue, 1);
+            this.$emit('input', this.formatDateToString(currentDate, this.format));
+
+        },
+
         inputTime(method, event) {
 
-            const currentDate = this.valueDate;
-            const maxValues = {setHours: 23, setMinutes: 59, setSeconds: 59};
+            const currentDate = new Date(this.valueDate);
+            const targetValue = parseInt(event.target.value) || 0;
+            const numValue = boundNumber(targetValue, 0, 59);
 
-            let numValue = parseInt(event.target.value, 10) || 0;
-
-            if (numValue > maxValues[method]) {
-                numValue = maxValues[method];
-            } else if (numValue < 0) {
-                numValue = 0;
-            }
-
-            event.target.value = paddNum(numValue, method === 'setHours' ? 1 : 2);
+            event.target.value = paddNum(numValue, 2);
             currentDate[method](numValue);
 
             this.$emit('input', this.formatDateToString(currentDate, this.format));
 
+        },
+
+        onTimeInputFocus(event) {
+            event.target.select && event.target.select();
         }
 
     }
@@ -725,6 +835,32 @@ function range(start, end) {
     }
     return results;
 
+}
+
+function to12HourClock(hours) {
+
+    const remainder = hours % 12;
+    return remainder === 0 ? 12 : remainder;
+
+}
+
+function to24HourClock(hours, PM) {
+
+    return PM
+        ? (hours === 12 ? hours : hours + 12)
+        : (hours === 12 ? 0 : hours)
+    ;
+
+}
+
+function isPM(hours) {
+
+    return hours >= 12;
+
+}
+
+function boundNumber(value, min, max) {
+    return Math.min(Math.max(value, min), max);
 }
 
 </script>

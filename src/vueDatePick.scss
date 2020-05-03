@@ -133,7 +133,8 @@ $vdpColor: #7485c2 !default;
 
 .vdpClearInput,
 .vdpArrow,
-.vdpPeriodControl > button {
+.vdpPeriodControl > button,
+.vdp12HourToggleBtn {
 
      margin:0; padding: 0; border: 0; cursor: pointer; background: none;
 
@@ -141,7 +142,8 @@ $vdpColor: #7485c2 !default;
 
 .vdpArrow::-moz-focus-inner,
 .vdpClearInput::-moz-focus-inner,
-.vdpPeriodControl > button::-moz-focus-inner {
+.vdpPeriodControl::-moz-focus-inner,
+.vdp12HourToggleBtn::-moz-focus-inner {
 
     padding: 0; border: 0;
 
@@ -286,7 +288,7 @@ $vdpColor: #7485c2 !default;
 .vdpCellContent {
 
     font-size: 1.4em; display: block; margin: 0 auto;
-    width: 1.857em; height: 1.857em; line-height: 1.857em;
+    width: 1.857em; line-height: 1.857em;
     text-align: center; border-radius: 100%;
     transition: background 0.1s, color 0.1s;
 
@@ -347,7 +349,8 @@ $vdpColor: #7485c2 !default;
 
 }
 
-.vdpTimeUnit > pre, .vdpTimeUnit > input {
+.vdpTimeUnit > pre,
+.vdpTimeUnit > input {
 
     font-size: 1.7em; line-height: 1.3; padding: 0.1em 0.1em;
     word-wrap: break-word; white-space: pre-wrap;
@@ -370,6 +373,10 @@ $vdpColor: #7485c2 !default;
     appearance: none; border-radius: 0; background: transparent;
 
     -webkit-appearance: textfield; -moz-appearance: textfield; appearance: textfield;
+
+    &::selection {
+        background-color: rgba($vdpColor, 0.15);
+    }
 
 }
 
@@ -396,5 +403,19 @@ $vdpColor: #7485c2 !default;
 .vdpTimeCaption {
 
     margin-right: 0.5em;
+
+}
+
+.vdp12HourToggleBtn {
+
+    display: inline-block; vertical-align: middle;
+    font-size: 1.3em; padding: 0 0.4em;
+
+}
+
+.vdp12HourToggleBtn:hover,
+.vdp12HourToggleBtn:focus {
+
+    color: $vdpColor; outline: 0;
 
 }

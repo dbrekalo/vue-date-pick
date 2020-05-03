@@ -176,6 +176,42 @@ export default {
 ```
 </details>
 
+## Date time picker (AM/PM)
+Date time picker with hours displayed using 12 hour clock:
+
+<picker-wrapper
+    value="2019-01-01 14:30"
+    :pickerProps="{format: 'YYYY-MM-DD HH:mm', displayFormat: 'YYYY.MM.DD H:mm A', pickTime: true, use12HourClock: true}"
+></picker-wrapper>
+
+<details>
+    <summary>
+    Show code
+    </summary>
+
+```vue
+<template>
+    <date-pick
+        v-model="date"
+        :pickTime="true"
+        :use12HourClock="true"
+        :format="'YYYY-MM-DD HH:mm'"
+        :displayFormat="'YYYY.MM.DD H:mm A'"
+    ></date-pick>
+</template>
+
+<script>
+import DatePick from 'vue-date-pick';
+export default {
+    components: {DatePick},
+    data: () => ({
+        date: '2019-01-01 14:30'
+    })
+};
+</script>
+```
+</details>
+
 ## Disabling dates
 Set "isDateDisabled" function as component prop to disable dates:
 

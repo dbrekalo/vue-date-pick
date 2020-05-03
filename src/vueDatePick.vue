@@ -1,21 +1,30 @@
 <template>
     <div class="vdpComponent" :class="{vdpWithInput: hasInputElement}">
-        <input
-            v-if="hasInputElement"
-            type="text"
-            v-bind="inputAttributes"
-            :readonly="isReadOnly"
-            :value="inputValue"
-            @input="editable && processUserInput($event.target.value)"
-            @focus="editable && open()"
-            @click="editable && open()"
+        <slot
+            :open="open"
+            :close="close"
+            :toggle="toggle"
+            :inputValue="inputValue"
+            :processUserInput="processUserInput"
+            :valueToInputFormat="valueToInputFormat"
         >
-        <button
-            v-if="editable && hasInputElement && inputValue"
-            class="vdpClearInput"
-            type="button"
-            @click="clear"
-        ></button>
+            <input
+                v-if="hasInputElement"
+                type="text"
+                v-bind="inputAttributes"
+                :readonly="isReadOnly"
+                :value="inputValue"
+                @input="editable && processUserInput($event.target.value)"
+                @focus="editable && open()"
+                @click="editable && open()"
+            >
+            <button
+                v-if="editable && hasInputElement && inputValue"
+                class="vdpClearInput"
+                type="button"
+                @click="clear"
+            ></button>
+        </slot>
         <transition name="vdp-toggle-calendar">
             <div
                 v-if="opened"
@@ -259,7 +268,7 @@ export default {
             opened: !this.hasInputElement,
             currentPeriod: this.startPeriod || this.getPeriodFromValue(
                 this.value, this.format
-            ),
+            )
         };
     },
 
@@ -585,6 +594,12 @@ export default {
                 ? this.formatDateToString(userDate, this.format)
                 : userText
             );
+
+        },
+
+        toggle() {
+
+            return this.opened ? this.close() : this.open();
 
         },
 

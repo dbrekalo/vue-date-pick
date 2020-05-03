@@ -241,6 +241,39 @@ export default {
 ```
 </details>
 
+## Custom content with slot
+Replace default input controls with custom slot content:
+
+<custom-input></custom-input>
+
+<details>
+    <summary>
+    Show code
+    </summary>
+
+```vue
+<template>
+    <date-pick v-model="date">
+        <template v-slot:default="{toggle, inputValue}">
+            <button @click="toggle">
+                 {{ inputValue || 'Toggle calendar' }}
+            </button>
+        </template>
+    </date-pick>
+</template>
+
+<script>
+import DatePick from 'vue-date-pick';
+export default {
+    components: {DatePick},
+    data: () => ({
+        date: ''
+    })
+};
+</script>
+```
+</details>
+
 ## Disabling dates
 Set "isDateDisabled" function as component prop to disable dates:
 

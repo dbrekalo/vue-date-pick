@@ -33,7 +33,7 @@
     "watch:test": "BABEL_ENV=test karma start --browsers ChromeHeadless"
   },
   "dependencies": {
-    "vue": "^2.5.17"
+    "vue": "^2.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

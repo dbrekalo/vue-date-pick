@@ -387,6 +387,12 @@ $vdpColor: #7485c2 !default;
 
 }
 
+.vdpTimeUnit > input:disabled {
+
+    border-bottom-color: transparent;
+
+}
+
 .vdpTimeUnit > input::-webkit-inner-spin-button,
 .vdpTimeUnit > input::-webkit-outer-spin-button {
     margin: 0;
@@ -410,6 +416,7 @@ $vdpColor: #7485c2 !default;
 
     display: inline-block; vertical-align: middle;
     font-size: 1.3em; padding: 0 0.4em;
+    color: #303030;
 
 }
 
@@ -419,3 +426,10 @@ $vdpColor: #7485c2 !default;
     color: $vdpColor; outline: 0;
 
 }
+
+.vdp12HourToggleBtn:disabled {
+
+    color: #303030;
+
+}
+

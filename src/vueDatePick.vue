@@ -87,7 +87,7 @@
                                     class="vdpCell"
                                     v-for="item in week"
                                     :class="{
-                                        selectable: !item.disabled,
+                                        selectable: editable && !item.disabled,
                                         selected: item.selected,
                                         disabled: item.disabled,
                                         today: item.today,
@@ -95,7 +95,7 @@
                                     }"
                                     :data-id="item.dateKey"
                                     :key="item.dateKey"
-                                    @click="selectDateItem(item)"
+                                    @click="editable && selectDateItem(item)"
                                 >
                                     <div
                                         class="vdpCellContent"
@@ -112,7 +112,7 @@
                                 type="number" pattern="\d*" class="vdpHoursInput"
                                 @input.prevent="inputHours"
                                 @focusin="onTimeInputFocus"
-                                :readonly="isReadOnly"
+                                :disabled="!editable"
                                 :value="currentTime.hoursFormatted"
                             >
                         </div>
@@ -124,7 +124,7 @@
                                 type="number" pattern="\d*" class="vdpMinutesInput"
                                 @input="inputTime('setMinutes', $event)"
                                 @focusin="onTimeInputFocus"
-                                :readonly="isReadOnly"
+                                :disabled="!editable"
                                 :value="currentTime.minutesFormatted"
                             >
                         </div>
@@ -136,14 +136,14 @@
                                 type="number" pattern="\d*" class="vdpSecondsInput"
                                 @input="inputTime('setSeconds', $event)"
                                 @focusin="onTimeInputFocus"
-                                :readonly="isReadOnly"
+                                :disabled="!editable"
                                 :value="currentTime.secondsFormatted"
                             >
                         </div>
                         <button
                             v-if="use12HourClock"
                             type="button" class="vdp12HourToggleBtn"
-                            :disabled="isReadOnly"
+                            :disabled="!editable"
                             @click="set12HourClock(currentTime.isPM ? 'AM' : 'PM')"
                         >
                             {{ currentTime.isPM ? 'PM' : 'AM' }}

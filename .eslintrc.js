@@ -60,7 +60,11 @@ module.exports = {
     'no-whitespace-before-property': 'error',
     'object-curly-spacing': ['error', 'never'],
     'space-before-blocks': 'error',
-    'space-before-function-paren': ['error', 'never'],
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
     'space-in-parens': ['error'],
     'wrap-iife': 'error'
   }

@@ -212,6 +212,35 @@ export default {
 ```
 </details>
 
+## Custom start period
+Open calendar UI with custom start month / year period:
+
+<picker-wrapper
+    value=""
+    :pickerProps="{startPeriod: {month: 0, year: 2020}}"
+></picker-wrapper>
+
+<details>
+    <summary>
+    Show code
+    </summary>
+
+```vue
+<template>
+    <date-pick
+        :startPeriod="{month: 0, year: 2020}}"
+    ></date-pick>
+</template>
+
+<script>
+import DatePick from 'vue-date-pick';
+export default {
+    components: {DatePick}
+};
+</script>
+```
+</details>
+
 ## Disabling dates
 Set "isDateDisabled" function as component prop to disable dates:
 

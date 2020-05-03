@@ -186,6 +186,9 @@ export default {
             type: [Number, Object, Function],
             default: 40
         },
+        startPeriod: {
+            type: Object
+        },
         parseDate: {
             type: Function
         },
@@ -251,10 +254,12 @@ export default {
     data() {
         return {
             inputValue: this.valueToInputFormat(this.value),
-            currentPeriod: this.getPeriodFromValue(this.value, this.format),
             direction: undefined,
             positionClass: undefined,
-            opened: !this.hasInputElement
+            opened: !this.hasInputElement,
+            currentPeriod: this.startPeriod || this.getPeriodFromValue(
+                this.value, this.format
+            ),
         };
     },
 
@@ -587,7 +592,9 @@ export default {
 
             if (!this.opened) {
                 this.opened = true;
-                this.currentPeriod = this.getPeriodFromValue(this.value, this.format);
+                this.currentPeriod = this.startPeriod || this.getPeriodFromValue(
+                    this.value, this.format
+                );
                 this.addCloseEvents();
                 this.setupPosition();
             }

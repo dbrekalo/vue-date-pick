@@ -612,6 +612,7 @@ export default {
                 );
                 this.addCloseEvents();
                 this.setupPosition();
+                this.$emit('opened');
             }
             this.direction = undefined;
 
@@ -624,6 +625,7 @@ export default {
                 this.direction = undefined;
                 this.removeCloseEvents();
                 this.teardownPosition();
+                this.$emit('closed');
             }
 
         },

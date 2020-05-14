@@ -448,3 +448,43 @@ export default {
 </script>
 ```
 </details>
+
+## Enforce slidings years limit
+Enforce selectable year range bounds via enforceSlidingYearsLimit prop
+(prevent years to slide outside the original bounds).
+
+<picker-wrapper
+    value="2019.01.01"
+    :pickerProps="{
+        selectableYearRange: 2,
+        enforceSlidingYearsLimit: true
+    }"
+></picker-wrapper>
+
+<details>
+    <summary>
+    Show code
+    </summary>
+
+```vue
+<template>
+    <date-pick
+        v-model="date"
+        :selectableYearRange="{from: 1985, to: 2020}"
+        :enforceSlidingYearsLimit: true
+    ></date-pick>
+</template>
+
+<script>
+import DatePick from 'vue-date-pick';
+
+export default {
+    components: {DatePick},
+    data: () => ({
+        date: '2019-01-01'
+    })
+};
+</script>
+```
+</details>
+

@@ -217,7 +217,7 @@ Open calendar UI with custom start month / year period:
 
 <picker-wrapper
     value=""
-    :pickerProps="{startPeriod: {month: 0, year: 2020}}"
+    :pickerProps="{startPeriod: {month: 0, year: 2020}"
 ></picker-wrapper>
 
 <details>

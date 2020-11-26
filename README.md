@@ -8,3 +8,7 @@ simplicity of configuration. Has no dependencies on css frameworks or date libra
 
 ## Documentation and demo
 [Browse documentation and demo pages](https://dbrekalo.github.io/vue-date-pick/).
+
+### Events
+- **`opened`** - the calendar control is visible
+- **`closed`** - the calendar control is no longer available

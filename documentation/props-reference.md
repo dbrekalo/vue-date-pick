@@ -88,5 +88,9 @@ months: {
 startWeekOnSunday: {
     type: Boolean,
     default: false
+},
+enforceSlidingYearsLimit: {
+    type: Boolean,
+    default: false
 }
 ```

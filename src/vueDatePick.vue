@@ -257,6 +257,10 @@ export default {
         startWeekOnSunday: {
             type: Boolean,
             default: false
+        },
+        enforceSlidingYearsLimit: {
+            type: Boolean,
+            default: false
         }
     },
 
@@ -354,14 +358,22 @@ export default {
             const currentYear = this.currentPeriod.year;
             const userRange = this.selectableYearRange;
             const userRangeType = typeof userRange;
+            const dateNowYear = (new Date()).getFullYear();
 
             let yearsRange = [];
 
             if (userRangeType === 'number') {
-                yearsRange = range(
-                    currentYear - userRange,
-                    currentYear + userRange
-                );
+                if (!this.enforceSlidingYearsLimit) {
+                    yearsRange = range(
+                        currentYear - userRange,
+                        currentYear + userRange
+                    );
+                } else {
+                    yearsRange = range(
+                        dateNowYear - userRange,
+                        dateNowYear + userRange
+                    );
+                }
             } else if (userRangeType === 'object') {
                 yearsRange = range(
                     userRange.from,
@@ -371,7 +383,8 @@ export default {
                 yearsRange = userRange(this);
             }
 
-            if (yearsRange.indexOf(currentYear) < 0) {
+            if (this.enforceSlidingYearsLimit &&
+                !yearsRange.includes(currentYear)) {
                 yearsRange.push(currentYear);
                 yearsRange = yearsRange.sort();
             }
@@ -574,6 +587,11 @@ export default {
 
             const refDate = new Date(this.currentPeriod.year, this.currentPeriod.month);
             const incrementDate = new Date(refDate.getFullYear(), refDate.getMonth() + increment);
+
+            if (this.enforceSlidingYearsLimit &&
+                !this.yearRange.includes(incrementDate.getFullYear())) {
+                return;
+            }
 
             this.currentPeriod = {
                 month: incrementDate.getMonth(),

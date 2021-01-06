@@ -1,9 +1,9 @@
 const path = require('path');
-const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -31,20 +31,11 @@ module.exports = {
                     'css-loader',
                     'postcss-loader',
                     'sass-loader'
-                ],
+                ]
             },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
-            },
-            {
-                test: /\.(js|vue)$/,
-                loader: 'eslint-loader',
-                enforce: 'pre',
-                include: [
-                    path.join(__dirname, 'src'),
-                    path.join(__dirname, 'spec')
-                ],
             },
             {
                 test: /\.js$/,
@@ -73,6 +64,13 @@ module.exports = {
 
     plugins: [
         new VueLoaderPlugin(),
+        new ESLintPlugin({
+            extensions: ['js', 'vue'],
+            files: [
+                path.join(__dirname, 'src'),
+                path.join(__dirname, 'spec')
+            ]
+        }),
         isProduction && new MiniCssExtractPlugin({filename: 'vueDatePick.css'})
     ].filter(i => i)
 };

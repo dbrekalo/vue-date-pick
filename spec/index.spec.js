@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import {assert, expect} from 'chai';
 import {mount} from '@vue/test-utils';
 import VueDatePick from '../src/vueDatePick';
 import Vue from 'vue';
@@ -149,7 +149,8 @@ describe('Vue date pick', () => {
         wrapper.vm.open();
         await Vue.nextTick();
 
-        assert.isTrue(wrapper.find('td[data-id="2017-12-30"]').is('.disabled'));
+        const el = wrapper.find('td[data-id="2017-12-30"]');
+        expect(el.classes()).to.include('disabled');
 
         wrapper.find('td[data-id="2017-12-30"]').trigger('click');
 
@@ -207,7 +208,8 @@ describe('Vue date pick', () => {
         wrapper.setProps({value: '2017-12-29'});
         await Vue.nextTick();
 
-        assert.isTrue(wrapper.find('td[data-id="2017-12-29"]').is('.selected'));
+        const el = wrapper.find('td[data-id="2017-12-29"]');
+        expect(el.classes()).to.include('selected');
 
     });
 
@@ -250,7 +252,7 @@ describe('Vue date pick', () => {
         wrapper.vm.open();
         await Vue.nextTick();
 
-        var event = new Event('keyup');
+        const event = new Event('keyup');
         event.which = event.keyCode = 27;
         document.dispatchEvent(event);
 
@@ -280,8 +282,8 @@ describe('Vue date pick', () => {
             }
         });
 
-        assert.isFalse(wrapper.contains('input'));
-        assert.isTrue(wrapper.contains('.vdpTable'));
+        assert.isFalse(wrapper.find('input').exists());
+        assert.isTrue(wrapper.find('.vdpTable').exists());
 
     });
 

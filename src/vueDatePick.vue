@@ -467,9 +467,11 @@ export default {
 
         valueToInputFormat(value) {
 
-            return !this.displayFormat ? value : this.formatDateToString(
-                this.parseDateString(value, this.format), this.displayFormat
-            ) || value;
+            return !this.displayFormat
+                ? value
+                : this.formatDateToString(
+                    this.parseDateString(value, this.format), this.displayFormat
+                ) || value;
 
         },
 

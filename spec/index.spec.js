@@ -250,7 +250,7 @@ describe('Vue date pick', () => {
         wrapper.vm.open();
         await Vue.nextTick();
 
-        var event = new Event('keyup');
+        const event = new Event('keyup');
         event.which = event.keyCode = 27;
         document.dispatchEvent(event);
 

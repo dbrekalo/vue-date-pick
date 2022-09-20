@@ -259,6 +259,11 @@ Replace default input controls with custom slot content:
                  {{ inputValue || 'Toggle calendar' }}
             </button>
         </template>
+        <template v-slot:cellContent="{item}">
+            <div class="vdpCellContent">
+                <strong>{{ item.date.getDate() }}</strong>
+            </div>
+        </template>
     </date-pick>
 </template>
 

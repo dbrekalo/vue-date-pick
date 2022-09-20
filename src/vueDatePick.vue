@@ -97,9 +97,11 @@
                                     :key="item.dateKey"
                                     @click="editable && selectDateItem(item)"
                                 >
-                                    <div
-                                        class="vdpCellContent"
-                                    >{{ item.date.getDate() }}</div>
+                                    <slot name="cellContent" v-bind:item="item">
+                                        <div
+                                            class="vdpCellContent"
+                                        >{{ item.date.getDate() }}</div>
+                                    </slot>
                                 </td>
                             </tr>
                         </tbody>

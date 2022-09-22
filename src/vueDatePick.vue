@@ -306,18 +306,16 @@ export default {
             const days = [];
             const date = new Date(year, month, 1);
             const today = new Date();
-            const offset = this.startWeekOnSunday ? 1 : 0;
+            const firstDayIndex = date.getDay();
+            const prependDaysCount = this.startWeekOnSunday
+                ? firstDayIndex
+                : firstDayIndex === 0 ? 6 : firstDayIndex - 1;
 
-            // append prev month dates
-            const startDay = date.getDay() || 7;
-
-            if (startDay > (1 - offset)) {
-                for (let i = startDay - (2 - offset); i >= 0; i--) {
-
+            if (prependDaysCount) {
+                for (let i = prependDaysCount; i > 0; i--) {
                     const prevDate = new Date(date);
-                    prevDate.setDate(-i);
+                    prevDate.setDate(-(i - 1));
                     days.push({outOfRange: true, date: prevDate});
-
                 }
             }
 
@@ -327,14 +325,14 @@ export default {
             }
 
             // append next month dates
-            const daysLeft = 7 - days.length % 7;
-
-            for (let i = 1; i <= daysLeft; i++) {
-
-                const nextDate = new Date(date);
-                nextDate.setDate(i);
-                days.push({outOfRange: true, date: nextDate});
-
+            const daysLeft = days.length % 7;
+            if (daysLeft > 0) {
+                const total = 7 - daysLeft;
+                for (let i = 1; i <= total; i++) {
+                    const nextDate = new Date(date);
+                    nextDate.setDate(i);
+                    days.push({outOfRange: true, date: nextDate});
+                }
             }
 
             // define day states

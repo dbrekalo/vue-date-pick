@@ -373,7 +373,7 @@ export default {
 
             if (yearsRange.indexOf(currentYear) < 0) {
                 yearsRange.push(currentYear);
-                yearsRange = yearsRange.sort();
+                yearsRange.sort();
             }
 
             return yearsRange;

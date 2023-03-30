@@ -1,5 +1,5 @@
 import {assert} from 'chai';
-import {mount} from '@vue/test-utils';
+import {mount, shallowMount} from '@vue/test-utils';
 import VueDatePick from '../src/vueDatePick';
 import Vue from 'vue';
 import fecha from 'fecha';
@@ -49,6 +49,33 @@ describe('Vue date pick', () => {
             ['2017-12-31']
         ]);
 
+    });
+
+    it('filters out unwanted focusin event from an external element', async () => {
+        const externalElement = document.createElement('div');
+        externalElement.setAttribute('class', 'modal');
+        document.body.appendChild(externalElement);
+
+        const datePickerElement = document.createElement('div');
+        datePickerElement.id = 'root';
+        document.body.appendChild(datePickerElement);
+
+        const wrapper = await shallowMount(VueDatePick, {
+            propsData: {
+                customCloseEventFilter: e => !e.target.classList.contains('modal')
+            },
+            attachTo: '#root'
+        });
+
+        wrapper.vm.open();
+
+        externalElement.addEventListener('focusin', wrapper.vm.inspectCloseEvent);
+        const externalFocusinEvent = new FocusEvent('focusin');
+        externalElement.dispatchEvent(externalFocusinEvent);
+
+        await wrapper.vm.$nextTick();
+        assert.isTrue(wrapper.find('.vdpOuterWrap').exists());
+        wrapper.destroy();
     });
 
     it('can use alternate parsing engine', async () => {

@@ -259,6 +259,10 @@ export default {
         startWeekOnSunday: {
             type: Boolean,
             default: false
+        },
+        customCloseEventFilter: {
+            type: Function,
+            default: () => true
         }
     },
 
@@ -651,6 +655,10 @@ export default {
         },
 
         inspectCloseEvent(event) {
+
+            if (!this.customCloseEventFilter(event)) {
+                return;
+            }
 
             if (event.keyCode) {
                 event.keyCode === 27 && this.close();
